@@ -1,4 +1,18 @@
-# Eventemitter
+# Eventemitter and how to use ;
+ Use them as is shown in the documentation only to emit events in components
+ you should not subscribe manually to it.
+is an angular2 abstraction and its only purpose is to emit events in components.
+EventEmitter is really an Angular abstraction, and should be used pretty much only for emitting custom Events in components. Otherwise, just use Rx as if it was any other library.
+Angular2 will never guarantee us that EventEmitter will continue being an Observable. So that means refactoring our code if it changes. The only API we must access is its emit() method. We should never subscribe manually to an EventEmitter.
+
+Do NOT count on EventEmitter continuing to be an Observable!
+
+Do NOT count on those Observable operators being there in the future!
+
+These will be deprecated soon and probably removed before release.
+
+Use EventEmitter only for event binding between a child and parent component. Do not subscribe to it. Do not call any of those methods. Only call eve.emit()
+---------------------------
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
